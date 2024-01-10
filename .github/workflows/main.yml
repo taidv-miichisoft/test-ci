@@ -22,12 +22,12 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: yarn
 
       # Build and Export Next.js app
       - name: Build and Export Next.js app
         run: |
-          npm run build
+          yarn build
 
       # Deploy to S3
       - name: Deploy to S3
