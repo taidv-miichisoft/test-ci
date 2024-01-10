@@ -36,7 +36,7 @@ jobs:
           args: --acl public-read --follow-symlinks --delete
         env:
           name: development
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}  # Set your S3 bucket name as a secret
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_S3_BUCKET: 'taidv-cloudfront-test' # Set your S3 bucket name as a secret
+          AWS_ACCESS_KEY_ID: 'AKIA4IBRRSVZKDOUE7QD'
+          AWS_SECRET_ACCESS_KEY: '0+nas/J+CG+SQq2ivYO9F4fRvpCHdM+P64NJyW7t'
           SOURCE_DIR: 'out'  # The output directory of next export
