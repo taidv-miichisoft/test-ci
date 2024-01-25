@@ -45,15 +45,15 @@ jobs:
     environment:
       name: development
     needs: build  
-      steps:
-        # Deploy to S3
-        - name: Deploy to S3
-          uses: jakejarvis/s3-sync-action@master
-          with:
-            args: --acl public-read --follow-symlinks --delete
-          env:
-            AWS_S3_BUCKET: 'taidv-cloudfront-test' # Set your S3 bucket name as a secret
-            AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            AWS_REGION: 'ap-northeast-1'
-            SOURCE_DIR: 'out'  # The output directory of next export
+    steps:
+      # Deploy to S3
+      - name: Deploy to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: 'taidv-cloudfront-test' # Set your S3 bucket name as a secret
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'ap-northeast-1'
+          SOURCE_DIR: 'out'  # The output directory of next export
