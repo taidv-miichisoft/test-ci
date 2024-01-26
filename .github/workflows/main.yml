@@ -40,12 +40,22 @@ jobs:
         run: |
           yarn build
 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact 
+          path: out/
+
   deploy:
     runs-on: ubuntu-latest
     environment:
       name: development
     needs: build  
     steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifact
+          path: out/
+
       # Deploy to S3
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@master
